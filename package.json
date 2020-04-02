@@ -1,0 +1,19 @@
+{
+  "name": "vrhr-server",
+  "version": "1.0.0",
+  "description": "VRHR server",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd frontend && npm install",
+    "start": "concurrently -c red,cyan \"npm:api\" \"npm:frontend\"",
+    "api": "VRHR_LISTEN_ADDRESS=\":8000\" go run *.go",
+    "frontend": "cd frontend && BROWSER=none REACT_APP_API_BASE_URL=\"http://localhost:8000\" npm start",
+    "build": "make build",
+    "dist": "make dist"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  },
+  "author": "TJ Horner <me@tjhorner.com>",
+  "license": "GPL-3.0"
+}

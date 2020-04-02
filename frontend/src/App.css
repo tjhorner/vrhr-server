@@ -1,0 +1,105 @@
+*, * * {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0px;
+  padding: 0;
+  font-size: 2em;
+}
+
+.app {
+  height: 400px;
+  width: 800px;
+  background: #282C34;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.left-side, .right-side {
+  display: inline-block;
+}
+
+.left-side {
+  height: 100%;
+  width: 50%;
+}
+
+.heart-icon {
+  height: 100%;
+  width: 100% !important;
+  color: #F7665F;
+}
+
+.right-side {
+  padding-left: 15px;
+  display: inline-flex;
+  vertical-align: top;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.hr {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.hr-number {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.accuracy {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.5em;
+  color: gray;
+  flex-grow: 1;
+}
+
+.bars-root {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+
+.bars-root .bar {
+  flex-grow: 1;
+  margin: 0 5px;
+  border-radius: 4px;
+  background-color: gray;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+}
+
+.bars-root.red .bar.active {
+  background-color: #F7665F;
+}
+
+.bars-root.yellow .bar.active {
+  background-color: #F7BC7E;
+}
+
+.bars-root.green .bar.active {
+  background-color: #63d463;
+}
+
+.bar:first-of-type {
+  height: 33%;
+}
+
+.bar:nth-of-type(2) {
+  height: 60%;
+}
+
+.bar:nth-of-type(3) {
+  height: 100%;
+}
