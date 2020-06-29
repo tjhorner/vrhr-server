@@ -21,7 +21,7 @@ jobs:
     - name: Get dependencies
       run: |
         go get -u github.com/gobuffalo/packr/v2/packr2
-        go get -v -t -d ./...
+        go mod download
     - name: Build binary
       run: |
         $(go env GOPATH)/bin/packr2
@@ -46,11 +46,11 @@ jobs:
     - name: Get dependencies
       run: |
         go get -u github.com/gobuffalo/packr/v2/packr2
-        go get -v -t -d ./...
+        go mod download
     - name: Build binary
       run: |
         $(go env GOPATH)/bin/packr2
-        go build -ldflags="-s -w -H=windowsgui" -o ./vrhr-linux-amd64 .
+        go build -ldflags="-s -w" -o ./vrhr-linux-amd64 .
         $(go env GOPATH)/bin/packr2 clean
     - name: Upload artifact
       uses: actions/upload-artifact@v2
@@ -71,11 +71,11 @@ jobs:
     - name: Get dependencies
       run: |
         go get -u github.com/gobuffalo/packr/v2/packr2
-        go get -v -t -d ./...
+        go mod download
     - name: Build binary
       run: |
         $(go env GOPATH)/bin/packr2
-        go build -ldflags="-s -w -H=windowsgui" -o ./vrhr-macos-amd64 .
+        go build -ldflags="-s -w" -o ./vrhr-macos-amd64 .
         $(go env GOPATH)/bin/packr2 clean
     - name: Upload artifact
       uses: actions/upload-artifact@v2
