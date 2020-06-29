@@ -36,15 +36,6 @@ The `--csv` option will output a CSV file adjacent to your working directory. Th
 
 ## License
 
-This software is licensed under the GNU GPL Version 3.0. This license does not allow the use of this software for commercial purposes, however **I am granting an exception for those who wish to use the software as a heart rate monitor for Twitch/YouTube/etc streams and want to monetize such streams**. That is 100% alright. All I ask in this case is that you mention & link to the software in the description of your stream or video. Thank you!
-
-The other terms still apply; for example:
-
-- You may not redistribute this software commercially. It is free.
-- You may not modify the software and redistribute it without the accompanying source code.
-
-This list is not exhaustive; please see the license for the full terms.
-
 ```
 VRHR Server
 Copyright (C) 2020 TJ Horner

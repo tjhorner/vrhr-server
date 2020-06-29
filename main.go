@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
+	"net"
 	"net/http"
 	"os"
 	"time"
 
 	"github.com/gobuffalo/packr/v2"
+	"github.com/tjhorner/vrhr-server/ui"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -69,7 +70,24 @@ func main() {
 	router.HandleFunc("/", serveIndex)
 	router.PathPrefix("/").HandlerFunc(serveSpa)
 
+	listener, err := net.Listen("tcp", envListenAddr)
+	if err != nil {
+		ui.Error(fmt.Errorf("error when attempting to listen: %v", err))
+		return
+	}
+
 	fmt.Printf("vrhr is now listening at %s\n", envListenAddr)
 
-	log.Fatal(http.ListenAndServe(envListenAddr, handlers.CORS()(router)))
+	go http.Serve(listener, handlers.CORS()(router))
+
+	pc, err := getPairingCode(listener.Addr().(*net.TCPAddr).Port)
+	if err != nil {
+		ui.Error(fmt.Errorf("error generating pairing code: %v", err))
+		return
+	}
+
+	mdnsServer := advertiseService(listener.Addr().(*net.TCPAddr).Port)
+	defer mdnsServer.Shutdown()
+
+	ui.Run(pc)
 }
