@@ -7,6 +7,7 @@ require (
 	github.com/gorilla/handlers v1.4.2
 	github.com/gorilla/mux v1.7.4
 	github.com/karrick/godirwalk v1.15.5 // indirect
+	github.com/mdp/qrterminal/v3 v3.0.0
 	github.com/sirupsen/logrus v1.5.0 // indirect
 	github.com/spf13/cobra v0.0.7 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect

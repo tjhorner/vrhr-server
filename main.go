@@ -71,5 +71,7 @@ func main() {
 
 	fmt.Printf("vrhr is now listening at %s\n", envListenAddr)
 
+	printQrInfo()
+
 	log.Fatal(http.ListenAndServe(envListenAddr, handlers.CORS()(router)))
 }

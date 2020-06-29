@@ -27,8 +27,13 @@ type API struct {
 
 func routeApi(router *mux.Router, context *Context) {
 	api := API{context}
+	router.HandleFunc("/api/meta", api.getMeta).Methods("GET")
 	router.HandleFunc("/api/state", api.getState).Methods("GET")
 	router.HandleFunc("/api/state", api.putState).Methods("PUT")
+}
+
+func (api *API) getMeta(w http.ResponseWriter, r *http.Request) {
+	respondJSON(api.Context.State, w, r)
 }
 
 func (api *API) getState(w http.ResponseWriter, r *http.Request) {
