@@ -39,11 +39,17 @@ func (api *API) putState(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	hr, _ := strconv.Atoi(r.FormValue("heartRate"))
 	acc, _ := strconv.Atoi(r.FormValue("accuracy"))
+	device := r.FormValue("device")
+
+	if device == "" {
+		device = "Unknown"
+	}
 
 	now := time.Now()
 
 	api.Context.State.CurrentAccuracy = acc
 	api.Context.State.CurrentHeartRate = hr
+	api.Context.State.ReportedByDevice = device
 	api.Context.State.DataReceivedAt = now
 
 	if api.Context.WriteToCsv {

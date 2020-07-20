@@ -8,7 +8,7 @@ body, html {
   font-size: 2em;
 }
 
-.app {
+.status {
   height: 400px;
   width: 800px;
   background: #282C34;
@@ -41,9 +41,16 @@ body, html {
   width: 50%;
 }
 
+.device {
+  font-size: 0.2em;
+  text-align: right;
+  color: gray;
+}
+
 .hr {
   text-align: right;
   margin-right: 10px;
+  line-height: 1;
 }
 
 .hr-number {

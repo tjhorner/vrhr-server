@@ -22,6 +22,7 @@ func main() {
 
 	context := Context{
 		WriteToCsv: *writeCsv,
+		State:      NewState(),
 	}
 
 	if context.WriteToCsv {
